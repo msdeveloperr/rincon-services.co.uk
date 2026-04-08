@@ -216,6 +216,7 @@ section{padding:5rem 2rem}
 .cv{font-weight:700;font-size:.88rem;color:var(--txt);margin-top:.1rem}
 .ccard{background:var(--card);border:1px solid var(--bdr);border-radius:16px;padding:1.8rem;box-shadow:0 2px 12px rgba(0,0,0,.04)}
 .cf{display:flex;flex-direction:column;gap:.7rem}
+.cf form{display:flex;flex-direction:column;gap:.7rem}
 .fg-l{display:block;font-size:.68rem;font-weight:600;color:var(--light);text-transform:uppercase;letter-spacing:1px;margin-bottom:.25rem}
 .fg-i,.fg-t,.fg-s{width:100%;padding:.7rem .9rem;background:var(--bg);border:1.5px solid var(--bdr);border-radius:8px;color:var(--txt);font-size:.88rem;font-family:'Manrope';transition:all .3s;outline:none}
 .fg-i:focus,.fg-t:focus,.fg-s:focus{border-color:var(--amber);box-shadow:0 0 0 3px rgba(242,140,40,.08)}
@@ -471,11 +472,15 @@ section{padding:5rem 2rem}
       <h3 style="font-family:'Sora';font-size:1.15rem;font-weight:800;color:var(--navy);margin-bottom:.2rem">Request a Quote</h3>
       <p style="color:var(--light);font-size:.82rem;margin-bottom:1rem">Fill in the details and we'll respond promptly.</p>
       <div class="cf">
-        <div class="fr"><div><label class="fg-l">Full Name</label><input class="fg-i" type="text" placeholder="Your name"></div><div><label class="fg-l">Company</label><input class="fg-i" type="text" placeholder="Company name"></div></div>
-        <div class="fr"><div><label class="fg-l">Email</label><input class="fg-i" type="email" placeholder="your@email.com"></div><div><label class="fg-l">Phone</label><input class="fg-i" type="tel" placeholder="Phone number"></div></div>
-        <div><label class="fg-l">Service</label><select class="fg-s"><option value="">Select a service...</option><option>Container Haulage</option><option>General Haulage / Freight</option><option>Amazon Relay Logistics</option><option>Other / Multiple Services</option></select></div>
-        <div><label class="fg-l">Message</label><textarea class="fg-t" placeholder="Routes, frequency, load types..."></textarea></div>
-        <button class="bp bsub" onclick="alert('Thank you! We will respond within 24 hours.')">Send Enquiry <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4z"/></svg></button>
+        <form action="https://formspree.io/f/xdapvnwd" method="POST">
+        <div class="fr"><div><label class="fg-l">Full Name</label><input class="fg-i" type="text" name="name" placeholder="Your name" required></div><div><label class="fg-l">Company</label><input class="fg-i" type="text" name="company" placeholder="Company name"></div></div>
+        <div class="fr"><div><label class="fg-l">Email</label><input class="fg-i" type="email" name="email" placeholder="your@email.com" required></div><div><label class="fg-l">Phone</label><input class="fg-i" type="tel" name="phone" placeholder="Phone number" required></div></div>
+        <div><label class="fg-l">Service</label><select class="fg-s" name="service"><option value="">Select a service...</option><option>Container Haulage</option><option>General Haulage / Freight</option><option>Amazon Relay Logistics</option><option>Other / Multiple Services</option></select></div>
+        <div><label class="fg-l">Message</label><textarea class="fg-t" name="message" placeholder="Routes, frequency, load types..."></textarea></div>
+        <input type="hidden" name="_subject" value="New Quote Request — Rincon Services">
+        <input type="hidden" name="_next" value="https://rinconservices.co.uk/#contact">
+        <button type="submit" class="bp bsub">Send Enquiry <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4z"/></svg></button>
+        </form>
       </div>
     </div>
   </div>
