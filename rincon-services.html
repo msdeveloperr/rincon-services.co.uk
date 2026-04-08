@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rincon Services Ltd — Freight Transport & Haulage UK</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Sora:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --navy:#0F2B4C;--navy-l:#1A3D6A;--navy-d:#091E36;
+  --amber:#F28C28;--amber-l:#FFAB4F;--amber-d:#D97418;
+  --bg:#FAFBFD;--bg2:#F5F0EB;--card:#FFFFFF;
+  --txt:#1A1F2E;--body:#4A5068;--light:#7D849A;
+  --bdr:#E8EBF0;--bdr2:#F0F2F6;--white:#fff;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Manrope',sans-serif;background:var(--bg);color:var(--txt);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+
+/* NAV */
+.nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:.8rem 2rem;background:rgba(255,255,255,.9);backdrop-filter:blur(16px);border-bottom:1px solid var(--bdr2);transition:all .3s}
+.nav.scrolled{box-shadow:0 2px 20px rgba(15,43,76,.06)}
+.ni{max-width:1240px;margin:0 auto;display:flex;align-items:center;justify-content:space-between}
+.nav-logo{display:flex;align-items:center;gap:.6rem;text-decoration:none}
+.logo-txt{display:flex;flex-direction:column}
+.logo-txt .n1{font-family:'Sora';font-weight:800;font-size:1.1rem;color:var(--navy);line-height:1.1;letter-spacing:-.3px}
+.logo-txt .n2{font-size:.56rem;color:var(--amber);letter-spacing:2.5px;text-transform:uppercase;font-weight:700}
+.nl{display:flex;align-items:center;gap:1.8rem;list-style:none}
+.nl a{color:var(--body);text-decoration:none;font-size:.87rem;font-weight:600;transition:color .3s}
+.nl a:hover{color:var(--navy)}
+.nav-cta{background:var(--amber)!important;color:var(--white)!important;padding:.5rem 1.2rem;border-radius:10px;font-weight:700;font-size:.85rem;transition:all .3s!important;box-shadow:0 2px 12px rgba(242,140,40,.2)}
+.nav-cta:hover{background:var(--amber-d)!important;transform:translateY(-1px)}
+.ham{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:5px;background:none;border:none}
+.ham span{width:24px;height:2px;background:var(--navy);border-radius:2px}
+
+/* HERO */
+.hero{padding:7rem 2rem 0;background:var(--white);overflow:hidden}
+.hero-inner{max-width:1240px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:3rem}
+.hero-badge{display:inline-flex;align-items:center;gap:.4rem;padding:.35rem .9rem;background:rgba(242,140,40,.08);border:1px solid rgba(242,140,40,.2);border-radius:50px;font-size:.7rem;font-weight:700;color:var(--amber-d);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:1.2rem}
+.hero-badge .dot{width:6px;height:6px;background:var(--amber);border-radius:50%;animation:blink 2s ease-in-out infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+.hero h1{font-family:'Sora';font-size:clamp(2.2rem,4.2vw,3.2rem);font-weight:800;line-height:1.1;letter-spacing:-1px;color:var(--navy);margin-bottom:1.2rem}
+.hero h1 span{color:var(--amber)}
+.hero-desc{font-size:1rem;color:var(--body);line-height:1.75;max-width:460px;margin-bottom:2rem}
+.hero-actions{display:flex;gap:.8rem;flex-wrap:wrap;margin-bottom:2rem}
+.bp{display:inline-flex;align-items:center;gap:.4rem;padding:.8rem 1.6rem;background:var(--amber);color:var(--white);border:none;border-radius:12px;font-size:.9rem;font-weight:700;font-family:'Manrope';cursor:pointer;transition:all .3s;text-decoration:none;box-shadow:0 4px 16px rgba(242,140,40,.2)}
+.bp:hover{background:var(--amber-d);transform:translateY(-2px);box-shadow:0 8px 24px rgba(242,140,40,.25)}
+.bs{display:inline-flex;align-items:center;gap:.4rem;padding:.8rem 1.6rem;background:transparent;color:var(--navy);border:2px solid var(--bdr);border-radius:12px;font-size:.9rem;font-weight:700;font-family:'Manrope';cursor:pointer;transition:all .3s;text-decoration:none}
+.bs:hover{border-color:var(--navy);background:rgba(15,43,76,.03)}
+.hero-stats{display:flex;gap:1.5rem}
+.hero-stat .num{font-family:'Sora';font-size:1.6rem;font-weight:800;color:var(--navy);line-height:1}
+.hero-stat .num em{font-style:normal;color:var(--amber)}
+.hero-stat .lbl{font-size:.65rem;color:var(--light);font-weight:600;text-transform:uppercase;letter-spacing:1px;margin-top:.15rem}
+
+/* Hero visual - truck illustration */
+.hero-visual{position:relative;padding-bottom:2rem}
+.truck-scene{background:linear-gradient(135deg,#E8F0FA,#F0E8DD);border-radius:20px;padding:2.5rem;min-height:360px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;box-shadow:0 16px 50px rgba(15,43,76,.08)}
+.truck-scene::before{content:'';position:absolute;bottom:0;left:0;right:0;height:60px;background:linear-gradient(to top,rgba(15,43,76,.06),transparent)}
+/* Road line */
+.truck-scene::after{content:'';position:absolute;bottom:28px;left:0;right:0;height:3px;background:repeating-linear-gradient(90deg,var(--amber) 0px,var(--amber) 20px,transparent 20px,transparent 35px)}
+.hero-float{position:absolute;bottom:-15px;left:-10px;background:var(--white);border-radius:14px;padding:.8rem 1.2rem;box-shadow:0 8px 30px rgba(15,43,76,.08);display:flex;align-items:center;gap:.6rem;border:1px solid var(--bdr2)}
+.hf-icon{width:38px;height:38px;background:rgba(242,140,40,.1);border-radius:9px;display:flex;align-items:center;justify-content:center}
+.hf-icon svg{width:20px;height:20px;color:var(--amber)}
+.hf-n{font-family:'Sora';font-weight:800;font-size:1.1rem;color:var(--navy)}
+.hf-l{font-size:.6rem;color:var(--light);font-weight:600;text-transform:uppercase;letter-spacing:1px}
+
+/* STRIP */
+.strip{background:var(--navy);padding:1.5rem 2rem}
+.strip-i{max-width:1240px;margin:0 auto;display:flex;align-items:center;justify-content:center;gap:2.5rem;flex-wrap:wrap}
+.strip-t{display:flex;align-items:center;gap:.4rem;color:rgba(255,255,255,.65);font-size:.8rem;font-weight:500}
+.strip-t svg{width:15px;height:15px;color:var(--amber);flex-shrink:0}
+.strip-t strong{color:rgba(255,255,255,.9)}
+
+/* SECTIONS */
+section{padding:5rem 2rem}
+.sl{display:inline-flex;align-items:center;gap:.4rem;font-size:.7rem;font-weight:700;color:var(--amber);letter-spacing:2.5px;text-transform:uppercase;margin-bottom:.8rem}
+.sl::before{content:'';width:16px;height:2px;background:var(--amber)}
+.st{font-family:'Sora';font-size:clamp(1.7rem,3.5vw,2.4rem);font-weight:800;letter-spacing:-.8px;line-height:1.1;color:var(--navy);margin-bottom:.7rem}
+.sd{font-size:.95rem;color:var(--body);max-width:540px;line-height:1.7}
+
+/* SERVICES */
+#services{background:var(--bg)}
+.sh{text-align:center;margin-bottom:3rem}.sh .sd{margin:.7rem auto 0}
+.sg{max-width:1240px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:1.3rem}
+.sc{border-radius:16px;overflow:hidden;border:1px solid var(--bdr);transition:all .4s;background:var(--white)}
+.sc:hover{border-color:rgba(242,140,40,.25);transform:translateY(-4px);box-shadow:0 12px 35px rgba(15,43,76,.06)}
+.sc-vis{height:180px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+.sc-vis.v1{background:linear-gradient(135deg,#1A3D6A,#0F2B4C)}
+.sc-vis.v2{background:linear-gradient(135deg,#2E5A8A,#1A3D6A)}
+.sc-vis.v3{background:linear-gradient(135deg,#D97418,#F28C28)}
+.sc-b{padding:1.6rem}
+.sc-tag{display:inline-block;padding:.2rem .6rem;background:rgba(242,140,40,.08);color:var(--amber-d);font-size:.65rem;font-weight:700;border-radius:6px;text-transform:uppercase;letter-spacing:1px;margin-bottom:.5rem}
+.sc h3{font-family:'Sora';font-size:1.1rem;font-weight:800;color:var(--navy);margin-bottom:.4rem}
+.sc p{color:var(--body);line-height:1.65;font-size:.85rem}
+.sf{margin-top:1rem;display:flex;flex-direction:column;gap:.3rem}
+.sfi{display:flex;align-items:center;gap:.4rem;font-size:.8rem;color:var(--body)}
+.sfi svg{width:14px;height:14px;color:var(--amber);flex-shrink:0}
+
+/* FLEET */
+#fleet{background:var(--white)}
+.fg{max-width:1240px;margin:2.5rem auto 0;display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center}
+.fleet-visual{background:linear-gradient(135deg,#E8F0FA,#D8E8F8);border-radius:18px;padding:2.5rem;min-height:360px;display:flex;align-items:center;justify-content:center;position:relative}
+.ff{display:flex;flex-direction:column;gap:.8rem;margin-top:1.5rem}
+.ffi{display:flex;align-items:flex-start;gap:.7rem;padding:.9rem;background:var(--bg);border:1px solid var(--bdr2);border-radius:10px;transition:all .3s}
+.ffi:hover{border-color:rgba(242,140,40,.2);box-shadow:0 4px 14px rgba(15,43,76,.04)}
+.ffi-ic{width:38px;height:38px;min-width:38px;background:rgba(242,140,40,.08);border-radius:9px;display:flex;align-items:center;justify-content:center}
+.ffi-ic svg{width:18px;height:18px;color:var(--amber)}
+.ffi h4{font-family:'Sora';font-size:.88rem;font-weight:700;color:var(--navy);margin-bottom:.1rem}
+.ffi p{font-size:.8rem;color:var(--light);line-height:1.5}
+
+/* ABOUT */
+#about{background:var(--bg)}
+.ag{max-width:1240px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:3.5rem;align-items:center}
+.aic{background:var(--white);border:1px solid var(--bdr);border-radius:16px;padding:1.8rem;overflow:hidden;position:relative}
+.aic::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--amber),var(--amber-l),var(--amber))}
+.ir{display:flex;justify-content:space-between;align-items:center;padding:.7rem 0;border-bottom:1px solid var(--bdr2)}
+.ir:last-child{border-bottom:none}
+.ir .l{font-size:.8rem;color:var(--light);font-weight:500}
+.ir .v{font-weight:700;color:var(--txt);text-align:right;font-size:.85rem}
+.ir .v.act{color:var(--amber)}
+
+/* COVERAGE */
+#coverage{background:var(--white)}
+.cc{max-width:1240px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:3.5rem;align-items:start}
+.rl{display:flex;flex-direction:column;gap:.5rem;margin-top:1.5rem}
+.ri{display:flex;align-items:center;gap:.7rem;padding:.8rem 1rem;background:var(--bg);border:1px solid var(--bdr2);border-radius:10px;transition:all .3s}
+.ri:hover{border-color:rgba(242,140,40,.15);box-shadow:0 2px 10px rgba(15,43,76,.03)}
+.rd{width:8px;height:8px;border-radius:50%;background:var(--amber);flex-shrink:0}
+.ri span{font-weight:500;font-size:.85rem;color:var(--body)}
+.cov-visual{background:linear-gradient(135deg,#0F2B4C,#1A3D6A);border-radius:18px;padding:2.5rem;min-height:380px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+.cov-visual::after{content:'20+ HGVs across all UK regions';position:absolute;bottom:2rem;left:2rem;right:2rem;font-family:'Sora';font-weight:700;font-size:1rem;color:rgba(255,255,255,.85)}
+
+/* CTA */
+.cta{padding:0 2rem;margin:2rem auto;max-width:1280px}
+.cta-inner{background:linear-gradient(135deg,var(--navy),var(--navy-l));border-radius:24px;padding:4rem 2rem;text-align:center;position:relative;overflow:hidden}
+.cta-inner::before{content:'';position:absolute;top:-50%;right:-20%;width:400px;height:400px;background:radial-gradient(circle,rgba(242,140,40,.15),transparent 70%);border-radius:50%}
+.cta-c{position:relative;z-index:2;max-width:600px;margin:0 auto}
+.cta-c h2{font-family:'Sora';font-size:clamp(1.6rem,3vw,2.2rem);font-weight:800;color:var(--white);margin-bottom:.7rem;letter-spacing:-.3px}
+.cta-c p{color:rgba(255,255,255,.7);font-size:.95rem;margin-bottom:1.8rem;line-height:1.7}
+.bw{display:inline-flex;align-items:center;gap:.4rem;padding:.8rem 1.8rem;background:var(--amber);color:var(--white);border:none;border-radius:12px;font-size:.9rem;font-weight:700;font-family:'Manrope';cursor:pointer;transition:all .3s;text-decoration:none;box-shadow:0 4px 16px rgba(242,140,40,.3)}
+.bw:hover{background:var(--amber-l);transform:translateY(-2px)}
+
+/* CONTACT */
+#contact{background:var(--bg)}
+.cg{max-width:1240px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start}
+.cm{display:flex;flex-direction:column;gap:.8rem;margin-top:1.5rem}
+.cmi{display:flex;align-items:center;gap:.7rem;padding:.9rem;background:var(--white);border:1px solid var(--bdr);border-radius:12px;transition:all .3s;text-decoration:none;color:inherit}
+.cmi:hover{border-color:rgba(242,140,40,.2);box-shadow:0 3px 12px rgba(15,43,76,.04)}
+.cmi-ic{width:42px;height:42px;background:rgba(242,140,40,.08);border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.cmi-ic svg{width:18px;height:18px;color:var(--amber)}
+.cl{font-size:.65rem;color:var(--light);font-weight:600;text-transform:uppercase;letter-spacing:1px}
+.cv{font-weight:700;font-size:.9rem;color:var(--txt);margin-top:.1rem}
+.ccard{background:var(--white);border:1px solid var(--bdr);border-radius:16px;padding:1.8rem}
+.cf{display:flex;flex-direction:column;gap:.7rem}
+.fg-l{display:block;font-size:.68rem;font-weight:600;color:var(--light);text-transform:uppercase;letter-spacing:1px;margin-bottom:.25rem}
+.fg-i,.fg-t,.fg-s{width:100%;padding:.7rem .9rem;background:var(--bg);border:1.5px solid var(--bdr);border-radius:9px;color:var(--txt);font-size:.88rem;font-family:'Manrope';transition:all .3s;outline:none}
+.fg-i:focus,.fg-t:focus,.fg-s:focus{border-color:var(--amber);box-shadow:0 0 0 3px rgba(242,140,40,.08)}
+.fg-t{resize:vertical;min-height:90px}.fg-s option{background:var(--white)}
+.fr{display:grid;grid-template-columns:1fr 1fr;gap:.7rem}
+.bsub{width:100%;padding:.8rem;margin-top:.1rem}
+
+/* FOOTER */
+.footer{background:var(--navy);padding:3rem 2rem 1.5rem;margin-top:2rem}
+.footer-inner{max-width:1240px;margin:0 auto}
+.ft{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:2rem;padding-bottom:2rem;border-bottom:1px solid rgba(255,255,255,.08)}
+.fb-r>p{color:rgba(255,255,255,.45);font-size:.8rem;line-height:1.7;max-width:250px;margin-top:.5rem}
+.fc h5{font-family:'Sora';font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:2px;color:rgba(255,255,255,.35);margin-bottom:.8rem}
+.fc a{display:block;color:rgba(255,255,255,.55);text-decoration:none;font-size:.82rem;padding:.2rem 0;transition:color .3s}
+.fc a:hover{color:var(--amber)}
+.fbot{display:flex;align-items:center;justify-content:space-between;padding-top:1.2rem;flex-wrap:wrap;gap:.5rem}
+.fbot p{color:rgba(255,255,255,.3);font-size:.75rem}
+
+.fi-a{opacity:0;transform:translateY(18px);transition:all .5s ease}.fi-a.vis{opacity:1;transform:translateY(0)}
+@keyframes fiu{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+
+@media(max-width:1024px){
+  .hero-inner{grid-template-columns:1fr;text-align:center}
+  .hero-desc{margin:0 auto 2rem}.hero-actions{justify-content:center}.hero-stats{justify-content:center}
+  .hero-visual{max-width:500px;margin:2rem auto 3rem}
+  .sg{grid-template-columns:1fr 1fr}
+  .fg,.ag,.cc,.cg{grid-template-columns:1fr}
+  .ft{grid-template-columns:1fr 1fr}
+}
+@media(max-width:768px){
+  section{padding:3.5rem 1.5rem}.nl{display:none}.ham{display:flex}
+  .nl.open{display:flex;flex-direction:column;position:absolute;top:100%;left:0;right:0;background:rgba(255,255,255,.98);backdrop-filter:blur(16px);padding:1.5rem;border-bottom:1px solid var(--bdr);gap:.8rem}
+  .sg{grid-template-columns:1fr}
+  .fr{grid-template-columns:1fr}
+  .strip-i{flex-direction:column;gap:.5rem}
+  .ft{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<nav class="nav" id="nav"><div class="ni">
+  <a href="#" class="nav-logo">
+    <svg viewBox="0 0 50 44" xmlns="http://www.w3.org/2000/svg" style="height:42px;width:auto">
+      <rect width="50" height="44" rx="10" fill="#0F2B4C"/>
+      <rect x="5" y="17" width="20" height="12" rx="2" fill="#F28C28"/>
+      <path d="M25 20h7l5 5v4H25v-9z" fill="#F28C28"/>
+      <rect x="27" y="21" width="4" height="3.5" rx="1" fill="#0F2B4C" opacity=".4"/>
+      <circle cx="12" cy="31" r="3" fill="#0F2B4C"/><circle cx="12" cy="31" r="1.3" fill="#F28C28"/>
+      <circle cx="34" cy="31" r="3" fill="#0F2B4C"/><circle cx="34" cy="31" r="1.3" fill="#F28C28"/>
+      <text x="25" y="13" text-anchor="middle" font-family="sans-serif" font-size="8.5" font-weight="800" fill="white" letter-spacing=".5">RINCON</text>
+    </svg>
+    <div class="logo-txt"><span class="n1">Rincon Services</span><span class="n2">Freight & Haulage UK</span></div>
+  </a>
+  <ul class="nl" id="navLinks"><li><a href="#services">Services</a></li><li><a href="#fleet">Fleet</a></li><li><a href="#about">About</a></li><li><a href="#coverage">Coverage</a></li><li><a href="#contact" class="nav-cta">Get a Quote</a></li></ul>
+  <button class="ham" id="ham"><span></span><span></span><span></span></button>
+</div></nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div>
+      <div class="hero-badge"><span class="dot"></span>Est. 2017 — Fleet of 20+ HGVs</div>
+      <h1>Reliable HGV<br><span>Freight Transport</span><br>Across the UK</h1>
+      <p class="hero-desc">Rincon Services operates over 20 heavy goods vehicles delivering container haulage, general freight, and Amazon Relay logistics nationwide.</p>
+      <div class="hero-actions">
+        <a href="#contact" class="bp">Get a Free Quote <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        <a href="#services" class="bs">Our Services</a>
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat"><div class="num">20<em>+</em></div><div class="lbl">HGV Fleet</div></div>
+        <div class="hero-stat"><div class="num">9<em>+</em></div><div class="lbl">Years</div></div>
+        <div class="hero-stat"><div class="num">UK</div><div class="lbl">Nationwide</div></div>
+        <div class="hero-stat"><div class="num">24<em>/7</em></div><div class="lbl">Operations</div></div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="truck-scene">
+        <svg viewBox="0 0 400 220" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:380px">
+          <!-- Sky -->
+          <rect width="400" height="160" fill="none"/>
+          <!-- Road -->
+          <rect x="0" y="160" width="400" height="60" rx="0" fill="#0F2B4C" opacity=".08"/>
+          <line x1="0" y1="185" x2="400" y2="185" stroke="#F28C28" stroke-width="2" stroke-dasharray="16 10" opacity=".6"/>
+          <!-- Truck trailer -->
+          <rect x="30" y="70" width="180" height="90" rx="6" fill="#0F2B4C"/>
+          <rect x="35" y="75" width="170" height="30" rx="3" fill="rgba(255,255,255,.08)"/>
+          <!-- Company name on truck -->
+          <text x="120" y="130" text-anchor="middle" font-family="'Sora',sans-serif" font-size="18" font-weight="800" fill="#F28C28" letter-spacing="2">RINCON</text>
+          <text x="120" y="148" text-anchor="middle" font-family="'Manrope',sans-serif" font-size="8" fill="rgba(255,255,255,.6)" letter-spacing="3">SERVICES LTD</text>
+          <!-- Truck cab -->
+          <path d="M210 100 h55 l30 30 v30 h-85 v-60z" fill="#F28C28" rx="4"/>
+          <rect x="220" y="105" width="30" height="22" rx="4" fill="#0F2B4C" opacity=".3"/>
+          <rect x="255" y="110" width="22" height="17" rx="3" fill="rgba(255,255,255,.15)"/>
+          <!-- Headlight -->
+          <rect x="290" y="135" width="8" height="6" rx="2" fill="#FFE066"/>
+          <!-- Wheels -->
+          <circle cx="80" cy="165" r="16" fill="#1A1F2E"/><circle cx="80" cy="165" r="8" fill="#3A3F4E"/><circle cx="80" cy="165" r="3" fill="#F28C28"/>
+          <circle cx="140" cy="165" r="16" fill="#1A1F2E"/><circle cx="140" cy="165" r="8" fill="#3A3F4E"/><circle cx="140" cy="165" r="3" fill="#F28C28"/>
+          <circle cx="260" cy="165" r="16" fill="#1A1F2E"/><circle cx="260" cy="165" r="8" fill="#3A3F4E"/><circle cx="260" cy="165" r="3" fill="#F28C28"/>
+          <!-- Fender -->
+          <path d="M60 155 Q80 145 100 155" fill="none" stroke="#0F2B4C" stroke-width="3" opacity=".3"/>
+          <path d="M120 155 Q140 145 160 155" fill="none" stroke="#0F2B4C" stroke-width="3" opacity=".3"/>
+          <path d="M240 155 Q260 145 280 155" fill="none" stroke="#F28C28" stroke-width="3" opacity=".3"/>
+          <!-- Speed lines -->
+          <line x1="5" y1="120" x2="22" y2="120" stroke="#F28C28" stroke-width="2" opacity=".3"/>
+          <line x1="0" y1="140" x2="20" y2="140" stroke="#0F2B4C" stroke-width="1.5" opacity=".15"/>
+          <line x1="8" y1="100" x2="18" y2="100" stroke="#F28C28" stroke-width="1.5" opacity=".2"/>
+        </svg>
+      </div>
+      <div class="hero-float">
+        <div class="hf-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="6" width="15" height="12" rx="2"/><path d="M16 10h4l3 3v5h-7V10z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></div>
+        <div><div class="hf-n">20+ Vehicles</div><div class="hf-l">Active Fleet</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="strip"><div class="strip-i">
+  <div class="strip-t"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/></svg><span>Company No: <strong>10572662</strong></span></div>
+  <div class="strip-t"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="6" width="15" height="12" rx="2"/><path d="M16 10h4l3 3v5h-7V10z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg><span>Fleet: <strong>20+ HGVs</strong></span></div>
+  <div class="strip-t"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg><span>Location: <strong>London</strong></span></div>
+  <div class="strip-t"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg><span>SIC: <strong>49410</strong></span></div>
+</div></div>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="sh"><div class="sl">Our Services</div><h2 class="st">Complete Transport Solutions</h2><p class="sd">From port-to-door container haulage to nationwide freight — our fleet of 20+ HGVs covers every aspect of UK logistics.</p></div>
+  <div class="sg">
+    <div class="sc fi-a">
+      <div class="sc-vis v1">
+        <svg viewBox="0 0 200 100" style="width:70%;opacity:.9"><rect x="10" y="20" width="90" height="55" rx="4" fill="rgba(255,255,255,.15)"/><path d="M100 35h30l20 20v20h-50v-40z" fill="rgba(255,255,255,.15)"/><circle cx="40" cy="80" r="10" fill="rgba(255,255,255,.2)"/><circle cx="130" cy="80" r="10" fill="rgba(255,255,255,.2)"/><rect x="15" y="30" width="30" height="20" rx="2" fill="rgba(242,140,40,.4)"/><text x="100" y="60" text-anchor="middle" font-family="sans-serif" font-size="10" fill="rgba(255,255,255,.5)" font-weight="700">CONTAINER</text></svg>
+      </div>
+      <div class="sc-b"><div class="sc-tag">Port Logistics</div><h3>Container Haulage</h3><p>Professional container transport to and from all major UK ports with our dedicated fleet.</p>
+        <div class="sf"><div class="sfi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span>Port-to-door delivery</span></div><div class="sfi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span>20ft & 40ft containers</span></div><div class="sfi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span>GPS tracked loads</span></div></div>
+      </div>
+    </div>
+    <div class="sc fi-a">
+      <div class="sc-vis v2">
+        <svg viewBox="0 0 200 100" style="width:70%;opacity:.9"><rect x="10" y="25" width="100" height="50" rx="4" fill="rgba(255,255,255,.15)"/><path d="M110 35h30l20 20v20h-50v-40z" fill="rgba(255,255,255,.15)"/><circle cx="40" cy="80" r="10" fill="rgba(255,255,255,.2)"/><circle cx="140" cy="80" r="10" fill="rgba(255,255,255,.2)"/><rect x="20" y="35" width="25" height="15" rx="2" fill="rgba(242,140,40,.3)"/><rect x="50" y="35" width="25" height="15" rx="2" fill="rgba(242,140,40,.3)"/><rect x="80" y="35" width="20" height="15" rx="2" fill="rgba(242,140,40,.3)"/></svg>
+      </div>
+      <div class="sc-b"><div class="sc-tag">Freight</div><h3>General Haulage</h3><p>Nationwide freight transport for palletised goods, industrial materials, and commercial cargo.</p>
+        <div class="sf"><div class="sfi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span>Full & partial loads</span></div><div class="sfi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span>Palletised freight</span></div><div class="sfi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span>Flexible scheduling</span></div></div>
+      </div>
+    </div>
+    <div class="sc fi-a">
+      <div class="sc-vis v3">
+        <svg viewBox="0 0 200 100" style="width:70%;opacity:.9"><rect x="10" y="25" width="100" height="50" rx="4" fill="rgba(255,255,255,.25)"/><path d="M110 35h30l20 20v20h-50v-40z" fill="rgba(255,255,255,.25)"/><circle cx="40" cy="80" r="10" fill="rgba(255,255,255,.3)"/><circle cx="140" cy="80" r="10" fill="rgba(255,255,255,.3)"/><rect x="30" y="35" width="60" height="12" rx="2" fill="rgba(15,43,76,.15)"/><text x="60" y="62" text-anchor="middle" font-family="sans-serif" font-size="9" fill="rgba(15,43,76,.3)" font-weight="700">AMAZON</text></svg>
+      </div>
+      <div class="sc-b"><div class="sc-tag">E-Commerce</div><h3>Amazon Relay</h3><p>Dedicated Amazon Relay partner. On-time deliveries meeting Amazon's performance standards.</p>
+        <div class="sf"><div class="sfi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span>Amazon certified carrier</span></div><div class="sfi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span>E-commerce logistics</span></div><div class="sfi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span>On-time performance</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FLEET -->
+<section id="fleet">
+  <div class="fg">
+    <div class="fleet-visual">
+      <svg viewBox="0 0 380 220" xmlns="http://www.w3.org/2000/svg" style="width:100%">
+        <!-- Multiple trucks illustration -->
+        <rect x="0" y="170" width="380" height="50" fill="#0F2B4C" opacity=".06"/>
+        <line x1="0" y1="192" x2="380" y2="192" stroke="#F28C28" stroke-width="2" stroke-dasharray="14 8" opacity=".4"/>
+        <!-- Truck 1 (front) -->
+        <rect x="60" y="80" width="140" height="70" rx="5" fill="#0F2B4C"/><text x="130" y="120" text-anchor="middle" font-size="12" fill="#F28C28" font-weight="800" font-family="sans-serif">RINCON</text>
+        <path d="M200 100h40l22 22v28h-62v-50z" fill="#F28C28"/>
+        <circle cx="100" cy="155" r="12" fill="#1A1F2E"/><circle cx="100" cy="155" r="5" fill="#F28C28"/>
+        <circle cx="150" cy="155" r="12" fill="#1A1F2E"/><circle cx="150" cy="155" r="5" fill="#F28C28"/>
+        <circle cx="235" cy="155" r="12" fill="#1A1F2E"/><circle cx="235" cy="155" r="5" fill="#F28C28"/>
+        <!-- Truck 2 (behind, smaller) -->
+        <rect x="10" y="50" width="80" height="40" rx="3" fill="#0F2B4C" opacity=".3"/>
+        <path d="M90 55h22l12 12v18H90V55z" fill="#F28C28" opacity=".3"/>
+        <circle cx="35" cy="93" r="6" fill="#1A1F2E" opacity=".3"/><circle cx="70" cy="93" r="6" fill="#1A1F2E" opacity=".3"/>
+        <!-- Truck 3 (behind right) -->
+        <rect x="280" y="55" width="70" height="35" rx="3" fill="#0F2B4C" opacity=".25"/>
+        <path d="M350 60h18l10 10v15h-28V60z" fill="#F28C28" opacity=".25"/>
+        <circle cx="300" cy="93" r="5" fill="#1A1F2E" opacity=".25"/><circle cx="330" cy="93" r="5" fill="#1A1F2E" opacity=".25"/>
+        <!-- Fleet badge -->
+        <rect x="130" y="5" width="120" height="30" rx="15" fill="#F28C28"/><text x="190" y="24" text-anchor="middle" font-size="11" fill="white" font-weight="700" font-family="sans-serif">20+ VEHICLES</text>
+      </svg>
+    </div>
+    <div>
+      <div class="sl">Our Fleet</div><h2 class="st">20+ Modern HGV Vehicles</h2>
+      <p class="sd">Our growing fleet is maintained to the highest standards, ensuring reliable and safe transport for every load across the UK.</p>
+      <div class="ff">
+        <div class="ffi fi-a"><div class="ffi-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="6" width="15" height="12" rx="2"/><path d="M16 10h4l3 3v5h-7V10z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></div><div><h4>Modern Fleet</h4><p>Well-maintained HGVs with latest safety and tracking</p></div></div>
+        <div class="ffi fi-a"><div class="ffi-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s-8-4.5-8-11.8A8 8 0 0112 2a8 8 0 018 8.2c0 7.3-8 11.8-8 11.8z"/><circle cx="12" cy="10" r="3"/></svg></div><div><h4>GPS Tracking</h4><p>Real-time tracking on every vehicle</p></div></div>
+        <div class="ffi fi-a"><div class="ffi-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div><div><h4>24/7 Operations</h4><p>Round-the-clock availability</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="ag">
+    <div><div class="sl">About Us</div><h2 class="st">Trusted Haulage Since 2017</h2>
+      <p class="sd" style="margin-bottom:1rem">Rincon Services Ltd is a London-based freight transport company operating a fleet of over 20 HGV vehicles. Registered with Companies House since January 2017.</p>
+      <p class="sd">Our team handles everything from container movements at major UK ports to regular freight runs for manufacturers and retailers.</p>
+    </div>
+    <div class="aic fi-a">
+      <div class="ir"><span class="l">Company Name</span><span class="v">Rincon Services Ltd</span></div>
+      <div class="ir"><span class="l">Company Number</span><span class="v">10572662</span></div>
+      <div class="ir"><span class="l">Incorporated</span><span class="v">19 January 2017</span></div>
+      <div class="ir"><span class="l">Company Type</span><span class="v">Private Limited</span></div>
+      <div class="ir"><span class="l">Status</span><span class="v act">Active</span></div>
+      <div class="ir"><span class="l">Fleet Size</span><span class="v">20+ HGVs</span></div>
+      <div class="ir"><span class="l">SIC Code</span><span class="v">49410</span></div>
+      <div class="ir"><span class="l">Location</span><span class="v">London, England</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- COVERAGE -->
+<section id="coverage">
+  <div class="cc">
+    <div><div class="sl">Our Reach</div><h2 class="st">UK-Wide Coverage</h2>
+      <p class="sd" style="margin-bottom:1.5rem">Our 20+ HGVs operate across the entire UK, connecting ports, distribution centres, and commercial hubs.</p>
+      <div class="rl">
+        <div class="ri fi-a"><span class="rd"></span><span>Major UK Ports — Felixstowe, Southampton, London Gateway, Tilbury</span></div>
+        <div class="ri fi-a"><span class="rd"></span><span>Amazon Fulfilment Centres — Nationwide</span></div>
+        <div class="ri fi-a"><span class="rd"></span><span>Distribution Hubs — Midlands, North West, South East</span></div>
+        <div class="ri fi-a"><span class="rd"></span><span>Manufacturing & Retail Sites — UK Wide</span></div>
+        <div class="ri fi-a"><span class="rd"></span><span>London & South East — Daily Services</span></div>
+      </div>
+    </div>
+    <div class="cov-visual fi-a">
+      <svg viewBox="0 0 220 300" style="width:60%;opacity:.9" xmlns="http://www.w3.org/2000/svg">
+        <path d="M95 290 L82 260 L72 240 L68 220 L63 200 L68 185 L63 165 L68 150 L63 135 L68 120 L78 105 L73 90 L68 75 L73 60 L82 48 L90 40 L87 28 L95 15 L108 10 L118 18 L122 32 L130 45 L126 58 L130 72 L138 80 L134 95 L130 108 L126 122 L130 135 L134 148 L130 162 L126 178 L130 192 L126 208 L122 222 L118 238 L112 252 L105 268 L100 280 L95 290Z" stroke="rgba(255,255,255,.4)" stroke-width="2" fill="rgba(255,255,255,.06)"/>
+        <!-- City dots -->
+        <circle cx="115" cy="240" r="6" fill="#F28C28"><animate attributeName="r" values="5;7;5" dur="2s" repeatCount="indefinite"/></circle>
+        <text x="100" y="258" fill="rgba(255,255,255,.8)" font-size="9" font-weight="700">London</text>
+        <circle cx="100" cy="170" r="4" fill="rgba(255,255,255,.4)"/><text x="108" y="174" fill="rgba(255,255,255,.5)" font-size="7">Midlands</text>
+        <circle cx="88" cy="130" r="4" fill="rgba(255,255,255,.4)"/><text x="96" y="134" fill="rgba(255,255,255,.5)" font-size="7">North</text>
+        <circle cx="130" cy="230" r="4" fill="rgba(255,255,255,.4)"/><text x="118" y="224" fill="rgba(255,255,255,.5)" font-size="7">Felixstowe</text>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<div class="cta"><div class="cta-inner">
+  <div class="cta-c"><h2>Need Reliable Freight Transport?</h2><p>Container haulage, general freight, or Amazon Relay — our fleet of 20+ HGVs is ready across the UK.</p>
+    <a href="#contact" class="bw">Get a Free Quote <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+  </div>
+</div></div>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="cg">
+    <div><div class="sl">Get in Touch</div><h2 class="st">Ready to Move Your Freight?</h2>
+      <p class="sd">Get in touch for a competitive quote on container haulage, general freight, or ongoing transport solutions.</p>
+      <div class="cm">
+        <a href="mailto:Rinconservicesltd@gmail.com" class="cmi"><div class="cmi-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div><div><div class="cl">Email</div><div class="cv">Rinconservicesltd@gmail.com</div></div></a>
+        <div class="cmi"><div class="cmi-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div><div><div class="cl">Location</div><div class="cv">London, England</div></div></div>
+        <div class="cmi"><div class="cmi-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div><div><div class="cl">Availability</div><div class="cv">24/7 Operations</div></div></div>
+      </div>
+    </div>
+    <div class="ccard">
+      <h3 style="font-family:'Sora';font-size:1.15rem;font-weight:800;color:var(--navy);margin-bottom:.2rem">Request a Quote</h3>
+      <p style="color:var(--light);font-size:.82rem;margin-bottom:1rem">Fill in the details and we'll respond promptly.</p>
+      <div class="cf">
+        <div class="fr"><div><label class="fg-l">Full Name</label><input class="fg-i" type="text" placeholder="Your name"></div><div><label class="fg-l">Company</label><input class="fg-i" type="text" placeholder="Company name"></div></div>
+        <div class="fr"><div><label class="fg-l">Email</label><input class="fg-i" type="email" placeholder="your@email.com"></div><div><label class="fg-l">Phone</label><input class="fg-i" type="tel" placeholder="Phone number"></div></div>
+        <div><label class="fg-l">Service</label><select class="fg-s"><option value="">Select...</option><option>Container Haulage</option><option>General Haulage</option><option>Amazon Relay</option><option>Other</option></select></div>
+        <div><label class="fg-l">Message</label><textarea class="fg-t" placeholder="Routes, frequency, load types..."></textarea></div>
+        <button class="bp bsub" onclick="alert('Thank you! We will respond within 24 hours.')">Send Enquiry</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer"><div class="footer-inner">
+  <div class="ft">
+    <div class="fb-r">
+      <div style="display:flex;align-items:center;gap:.5rem;margin-bottom:.5rem">
+        <svg viewBox="0 0 50 44" style="height:32px" xmlns="http://www.w3.org/2000/svg"><rect width="50" height="44" rx="10" fill="#F28C28"/><rect x="5" y="17" width="20" height="12" rx="2" fill="#fff"/><path d="M25 20h7l5 5v4H25v-9z" fill="#fff"/><circle cx="12" cy="31" r="3" fill="#0F2B4C"/><circle cx="34" cy="31" r="3" fill="#0F2B4C"/><text x="25" y="13" text-anchor="middle" font-size="8.5" font-weight="800" fill="#0F2B4C" font-family="sans-serif">RINCON</text></svg>
+        <span style="font-family:'Sora';font-weight:700;font-size:.95rem;color:var(--white)">Rincon Services</span>
+      </div>
+      <p>Professional freight transport & haulage across the UK. Fleet of 20+ HGVs. Est. 2017.</p>
+    </div>
+    <div class="fc"><h5>Services</h5><a href="#services">Container Haulage</a><a href="#services">General Haulage</a><a href="#services">Amazon Relay</a></div>
+    <div class="fc"><h5>Company</h5><a href="#about">About Us</a><a href="#fleet">Fleet</a><a href="#coverage">Coverage</a><a href="#contact">Contact</a></div>
+    <div class="fc"><h5>Contact</h5><a href="mailto:Rinconservicesltd@gmail.com">Rinconservicesltd@gmail.com</a><a>London, England</a><a>rincon-services.co.uk</a></div>
+  </div>
+  <div class="fbot"><p>&copy; 2017–2026 Rincon Services Ltd. Co. 10572662</p><p>England & Wales</p></div>
+</div></footer>
+
+<script>
+const nav=document.getElementById('nav');window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',window.scrollY>50));
+const ham=document.getElementById('ham'),nl=document.getElementById('navLinks');ham.addEventListener('click',()=>nl.classList.toggle('open'));
+nl.querySelectorAll('a').forEach(l=>l.addEventListener('click',()=>nl.classList.remove('open')));
+const obs=new IntersectionObserver(e=>{e.forEach(i=>{if(i.isIntersecting){i.target.classList.add('vis');obs.unobserve(i.target)}})},{threshold:.15});
+document.querySelectorAll('.fi-a').forEach(el=>obs.observe(el));
+document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',e=>{e.preventDefault();const t=document.querySelector(a.getAttribute('href'));if(t)t.scrollIntoView({behavior:'smooth',block:'start'})})});
+</script>
+</body>
+</html>
