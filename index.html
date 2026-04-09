@@ -444,7 +444,7 @@ section{padding:5rem 2rem}
       </div>
     </a>
     <a href="container-haulage-southampton.html" class="blog-card fi-a">
-      <div class="blog-card-img" style="background-image:url('https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?auto=format&fit=crop&w=600&q=80')"><div class="blog-tag">Port Haulage</div></div>
+      <div class="blog-card-img" style="background-image:url('https://images.pexels.com/photos/2226458/pexels-photo-2226458.jpeg?auto=compress&cs=tinysrgb&w=600')"><div class="blog-tag">Port Haulage</div></div>
       <div class="blog-card-body">
         <h3>Container Haulage Southampton — Port-to-Door UK Delivery</h3>
         <p>Professional container transport from the Port of Southampton. 20ft and 40ft containers delivered nationwide with our 20+ HGV fleet.</p>
@@ -541,14 +541,21 @@ const obs=new IntersectionObserver(e=>{e.forEach(i=>{if(i.isIntersecting){i.targ
 document.querySelectorAll('.fi-a').forEach(el=>obs.observe(el));
 document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',e=>{e.preventDefault();const t=document.querySelector(a.getAttribute('href'));if(t)t.scrollIntoView({behavior:'smooth',block:'start'})})});
 
-// Blog Carousel
+// Blog Carousel — Infinite Loop
 const blogGrid=document.getElementById('blogGrid');
 const blogPrev=document.getElementById('blogPrev');
 const blogNext=document.getElementById('blogNext');
 if(blogGrid&&blogPrev&&blogNext){
-  const getScrollAmount=()=>{const card=blogGrid.querySelector('.blog-card');if(!card)return 300;return card.offsetWidth+20;};
-  blogNext.addEventListener('click',()=>{blogGrid.scrollBy({left:getScrollAmount(),behavior:'smooth'})});
-  blogPrev.addEventListener('click',()=>{blogGrid.scrollBy({left:-getScrollAmount(),behavior:'smooth'})});
+  const getScrollAmount=()=>{const card=blogGrid.querySelector('.blog-card');if(!card)return 300;return card.offsetWidth+parseInt(getComputedStyle(blogGrid).gap||20);};
+  blogNext.addEventListener('click',()=>{
+    const maxScroll=blogGrid.scrollWidth-blogGrid.clientWidth;
+    if(blogGrid.scrollLeft>=maxScroll-5){blogGrid.scrollTo({left:0,behavior:'smooth'});}
+    else{blogGrid.scrollBy({left:getScrollAmount(),behavior:'smooth'});}
+  });
+  blogPrev.addEventListener('click',()=>{
+    if(blogGrid.scrollLeft<=5){blogGrid.scrollTo({left:blogGrid.scrollWidth,behavior:'smooth'});}
+    else{blogGrid.scrollBy({left:-getScrollAmount(),behavior:'smooth'});}
+  });
 }
 </script>
 
