@@ -260,8 +260,8 @@ section{padding:5rem 2rem}
 /* BLOG */
 #blog{background:var(--bg)}
 .blog-wrapper{max-width:1200px;margin:0 auto;position:relative}
-.blog-grid{display:flex;gap:1.3rem;overflow:hidden;scroll-behavior:smooth;padding:0 .5rem}
-.blog-card{border-radius:16px;overflow:hidden;background:var(--card);box-shadow:0 2px 12px rgba(0,0,0,.04);transition:all .4s;text-decoration:none;display:block;min-width:calc(33.333% - .87rem);flex-shrink:0}
+.blog-grid{display:flex;gap:1.3rem;overflow:hidden;scroll-behavior:smooth}
+.blog-card{border-radius:16px;overflow:hidden;background:var(--card);box-shadow:0 2px 12px rgba(0,0,0,.04);transition:all .4s;text-decoration:none;display:block;flex:0 0 calc(33.333% - .87rem)}
 .blog-card:hover{transform:translateY(-4px);box-shadow:0 12px 35px rgba(0,0,0,.08)}
 .blog-card-img{height:180px;background-size:cover;background-position:center;position:relative}
 .blog-card-img .blog-tag{position:absolute;top:12px;left:12px;padding:.2rem .6rem;background:rgba(242,140,40,.9);color:var(--white);font-size:.6rem;font-weight:700;border-radius:5px;text-transform:uppercase;letter-spacing:1px}
@@ -276,8 +276,8 @@ section{padding:5rem 2rem}
 .blog-btn:hover{border-color:var(--amber);background:var(--amber);color:var(--white)}
 .blog-btn svg{width:18px;height:18px;color:var(--navy);transition:color .3s}
 .blog-btn:hover svg{color:var(--white)}
-@media(max-width:900px){.blog-card{min-width:calc(50% - .65rem)}}
-@media(max-width:600px){.blog-card{min-width:100%}}
+@media(max-width:900px){.blog-card{flex:0 0 calc(50% - .65rem)}}
+@media(max-width:600px){.blog-card{flex:0 0 100%}}
 </style>
 </head>
 <body>
@@ -444,7 +444,7 @@ section{padding:5rem 2rem}
       </div>
     </a>
     <a href="container-haulage-southampton.html" class="blog-card fi-a">
-      <div class="blog-card-img" style="background-image:url('https://images.unsplash.com/photo-1567789884554-0b844b597180?auto=format&fit=crop&w=600&q=80')"><div class="blog-tag">Port Haulage</div></div>
+      <div class="blog-card-img" style="background-image:url('https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?auto=format&fit=crop&w=600&q=80')"><div class="blog-tag">Port Haulage</div></div>
       <div class="blog-card-body">
         <h3>Container Haulage Southampton — Port-to-Door UK Delivery</h3>
         <p>Professional container transport from the Port of Southampton. 20ft and 40ft containers delivered nationwide with our 20+ HGV fleet.</p>
